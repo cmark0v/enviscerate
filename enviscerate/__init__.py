@@ -17,6 +17,6 @@ otherwise any incomming value from the environment will be cast from its native 
 from .enviscerate import env
 from .enviscerate import YES
 
-__all__ = [env,YES]
+__all__ = ["env","YES"]
 
-__version__ = "0.0.1"
+__version__: str = "0.0.1"

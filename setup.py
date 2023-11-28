@@ -1,8 +1,7 @@
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+import os
+import re
 
+from setuptools import setup
 
 current_directory = os.path.dirname(os.path.abspath(__file__))
 try:
@@ -24,7 +23,8 @@ setup(
     packages=[
         "enviscerate",
     ],
-    extras_require=[jsonofabitch, dotenv],
+    install_requires=[],
+    requires=[],
     keywords=["dotenv", "env", "vars", "environment", "shell", "bash"],
     license="MIT",
 )

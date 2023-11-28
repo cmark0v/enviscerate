@@ -3,7 +3,7 @@ requires = ["setuptools>=42"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "jsonofabitch" 
+name = "enviscerate" 
 dynamic=["version","license","keywords","description"]
 authors = [
   { name="c mark0v", email="cmark0v@protonmail.com" }
