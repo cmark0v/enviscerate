@@ -7,7 +7,7 @@ from enviscerate import env
 HOME = env('/this/dir')
 ```
 
-Will set the value of HOME with the following precedence 
+Will set the value of HOME to the first available value with the following priority:
 
 1. env var ``$HOME``
 2. .env file supplied value
@@ -23,3 +23,8 @@ features
 - otherwise it will be casted as whatever you supply. presumably an ``int`` ``float`` or ``str`` but with no presumptions or restrictions thereof
 - It will use dotenv if available but does not require it, but will spit warnings to avoid frustrating mysterious why-are-my-settings-not-registering hickups
 
+
+how does it work
+----------------
+
+it is a hack that stack traces the function call to pull the variable name it was assigned to which is then used to pull the env variable sharing the same name. env vars are implicitly delivered as strings so they have to be typecasted, the information for that is pulled out of the default value you give as the argument to env. I made this because i was sick of looking at the code i was using to do this typecasting. 
