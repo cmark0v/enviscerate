@@ -18,7 +18,7 @@ from os import getenv
 YES = ["t", "true", "1", "yes", "y"]
 
 
-def env(val):
+def env(val=None):
     (filename, line_number, function_name, text) = traceback.extract_stack()[-2]
     def_name = text[: text.find("=")].strip()
     if type(val) is bool:

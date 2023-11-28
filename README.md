@@ -1,4 +1,4 @@
-# Enviscerate
+# ENViscerate
 
 One line access to environment variables, handling typecasts automatically. Simply declare a variable with the same name, assigning it to the output of the function ``env(default_value)`` where ``default_value`` is of the type you want the env variable casted as. It is easier to say with an example
 

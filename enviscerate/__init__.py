@@ -1,18 +1,25 @@
-"""
-Declare with the same name as the environment variable you wish to access
+"""One line access to environment variables, handling typecasts automatically. Simply declare a variable with the same name, assigning it to the output of the function ``env(default_value)`` where ``default_value`` is of the type you want the env variable casted as. It is easier to say with an example:
 
+from enviscerate import env
 HOME = env('/this/dir')
 
-will set the value of HOME with priority:
-    1. env var $HOME
-    2. .env file supplied value(if present and module dotenv available)
-    3. value you supplied to env() function above
+Will set the value of HOME with the following precedence 
 
-if type is dict, it will be parsed as JSLOB using jsonofabitch module(if available). parsed as JSON using builtin json.loads() otherwise
-if bool it will be set to true if str(val).lower() in ["t", "true", "1", "yes", "y"] for env(val)
-otherwise any incomming value from the environment will be cast from its native state as a string to the type of the value supplied to env()
+1. env var ``$HOME``
+2. .env file supplied value
+3. value ``'/this/dir'`` you supplied to env() function above
+
+
+features
+--------
+
+- if type is dict, it will be parsed as JSLOB using jsonofabitch module(if available). parsed as JSON using builtin json.loads() otherwise
+- if bool it will be set to ``True`` if ``str(val).lower() in ["t", "true", "1", "yes", "y"]`` for ``env(val)`` and ``False`` otherwise
+- If ``None``, the case of ``env()``, you will get ``None`` if the variable is not declared and a string otherwise
+- otherwise it will be casted as whatever you supply. presumably an ``int`` ``float`` or ``str`` but with no presumptions or restrictions thereof
+- It will use dotenv if available but does not require it, but will spit warnings to avoid frustrating mysterious why-are-my-settings-not-registering hickups
+
 """
-
 
 from .enviscerate import env
 from .enviscerate import YES
